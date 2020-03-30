@@ -9,7 +9,7 @@ public class Editor : EditorWindow
     [MenuItem("SceneLoader/Load Scene")]
     static void LoadScene()
     {
-        string path = EditorUtility.OpenFilePanel("Load Scene", Application.dataPath + "/Scenes", "txt");
+        string path = EditorUtility.OpenFilePanel("Load Scene", Application.dataPath + "/Scenes", "json");
         if(path.Length != 0)
         {
             Debug.Log(path);
@@ -38,7 +38,7 @@ public class Editor : EditorWindow
         }
         //Write Json File
         string saveScene = JsonUtility.ToJson(savePlayersInfo);
-        string path = EditorUtility.SaveFilePanel("Save Scene", Application.dataPath + "/Scenes", "SavedScene", "txt");
+        string path = EditorUtility.SaveFilePanel("Save Scene", Application.dataPath + "/Scenes", "SavedScene", "json");
         if(path.Length != 0)
             File.WriteAllText(path, saveScene);
     }
